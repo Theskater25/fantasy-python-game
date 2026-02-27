@@ -1,0 +1,4 @@
+Pré-requis pour lancer le jeu :
+  -Une version officielle de Python (n’importe quelle version récente).
+  -Installer la base de données fournie avec le projet.
+  -Assurez-vous que le jeu peut accéder à la base de données avant de le lancer. 
