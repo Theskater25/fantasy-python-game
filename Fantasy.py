@@ -47,8 +47,8 @@ INSERT OR IGNORE INTO Classe (id_classe, nom, pv_base, attaque_base) VALUES
 (3, 'Chevalier', 16, 14),
 (4, 'Barbare', 14, 12),
 (5, 'Assassin', 10, 12),
-(6,'Artificier',13,15)
-(7,'Bard',10,8)
+(6,'Artificier',13,15),
+(7,'Bard',10,8),
 (8, 'Moine', 13, 15),
 (9,'Nécromancien',12,10)
 (10,'Bouffon du Roi',12,12);
@@ -59,12 +59,12 @@ INSERT OR IGNORE INTO Competence (id_competence, id_classe, nom, effet, bonus_pv
 (2, 2, 'Flèche explosive', 'Prochain attaque inflige +50% dégâts', 0, 0, 1),
 (3, 3, 'Bouclier divin', 'Réduit de 70% les dégâts reçus pendant 2 tours', 0, 0, 2),
 (4, 4, 'Fureur d''Odin', 'Augmente de 50% les dégâts pendant 2 tours', 0, 0, 2),
-(5, 5, 'Esquive ultime', 'Vous subissez 0 dégât pendant ce tour (rattrape une attaque)', 0, 0, 1)
-(6, 6,'Explosives Artisanaux', "Fait une explosion qui inflige 25O degats",0,0,1)
-(7, 7,'Musique Etourdissante',"Etourdit l'ennemi pendant 3 tours", 0, 0, 3)
-(8,8,'Fureur des Moines','Assene 3 coup violent pendant 1 tours',0,3,1),
-(9,9,'Drain Vital','infligez 100% de dégats et soignez vous de 50%',0,0,1),
-(10,10,'Chaos du bouffon',"Une cation aleatoire s'active",0,0,1)
+(5, 5, 'Esquive ultime', 'Vous subissez 0 dégât pendant ce tour (rattrape une attaque)', 0, 0, 1),
+(6, 6, 'Explosives Artisanaux', "Fait une explosion qui inflige 250 degats",0,0,1),
+(7, 7, 'Musique Etourdissante', "Etourdit l'ennemi pendant 3 tours", 0, 0, 3),
+(8, 8, 'Fureur des Moines', 'Assene 3 coups violent pendant 1 tours',0,3,1),
+(9, 9, 'Drain Vital', 'infligez 100% de dégats et soignez vous de 50%',0,0,1),
+(10, 10, 'Chaos du bouffon', "Une action aleatoire s'active",0,0,1);
 
 -- Insert ennemis de base et boss (IDs arbitraires)
 INSERT OR IGNORE INTO Ennemi (id_ennemi, nom, pv, attaque, type) VALUES
@@ -76,7 +76,7 @@ INSERT OR IGNORE INTO Ennemi (id_ennemi, nom, pv, attaque, type) VALUES
                             (10, "Jack Chistophe, Prêtre de l'Evangile de l'Eglise Ulmer Münster", 50, 4, 'boss'),
                             (11, 'Yhorm le Géant', 75, 7, 'boss'),
                             (12, 'Lothric, Prince cadet et Lorian, Prince aîné', 125, 10, 'boss'),
-                            (13,"Ilyan, L'indompteur sanguinaire de la Tricky Tower de Dieuv",150,17,'boss')
+                            (13,"Ilyan, L'indompteur sanguinaire de la Tricky Tower de Dieuv",150,17,'boss'),
                             (14, 'Le Roi sans Nom',150,15,'boss');
 """
 
@@ -150,15 +150,15 @@ CLASS_LOGOS = {
 ""","Artificier": r"""
      _.-^^---....,,--
  _--                  --_
-&lt;                        &gt;)
+<                        >)
 |                         |
  \._                   _./
     ```--. . , ; .--'''
           | |   |
        .-=||  | |=-.
-       `-=#$%&amp;%$#=-'
+       `-=#$%&%$#=-'
           | ;  :|
- _____.,-#%&amp;$@%#~,._____
+ _____.,-#%&$@%#~,._____
 ""","Bard": r"""
                           ,     
                       ,   |     
@@ -236,7 +236,7 @@ CLASS_LOGOS = {
 """}
 DECORS ={
     "Village": r"""
-         .--._.-.         .                                                                                                                               .
+     .--._.-.         .                                                                                                                               .
     (  . . .'-.                           .                                                                                                .-._                           .
   .-'. . . . . )                                                                                                                      .   (:::::-.                                 -
  (:.:.:.:.:.:.:'-.                                                             .-._                                                        '-'-'-'
@@ -277,7 +277,7 @@ DECORS ={
 :/ \/ \   ):::_.::/   \: n :/    \:.:i-i-i-i-i-i-i-i-i-7 : : : / \ : 7::/\:::o::::::| |L L| |L L L |L L|  '.'. L : : : : : L-i-(   )nn::ll:   :___--==''..:::|:v::(  |'|'|'|'|'|'|'|'|'|'|'|'  |'| l::_ / \:: .-.::v
 :/_\/_\___)__( ):v.:.::.::........:v.:::::::::::::::::i-i-i-i-i/ \i-i::::: __________ _ _____ _ _ _ _ _____ ) ) i-i-i-i-i-i-i_(     )------====---'''::l:v:i=i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i._:::::(_)/ \::(   )::
 ::|::|::|:(   ):::::::.::::::v::::::::::_______-----.-.-----===/ \=========------------- - - --------- - ---   =============--(_____)-''''''::::v::::l::::l::i_ ............................... 'i_ ::| /_\:|(   )::
-: :.:::o::::::::.-.____----============--------""""(   )"""" ::/_\::i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i i-i-i-i-i-i-i-i-i-i-i-i-i-i-i|i-i-i-i-i-i-i-i-i-i-i-i-i-i_ i_ ................................ 'i._ :|:::(___)_:
+: :.:::o::::::::.-.____----============--------''''(   )'''' ::/_\::i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i i-i-i-i-i-i-i-i-i-i-i-i-i-i-i|i-i-i-i-i-i-i-i-i-i-i-i-i-i_ i_ ................................ 'i._ :|:::(___)_:
 n::v::.::___---(   )--'''''::::::::v:::::::.::^:::(     )_::::::|::7 vVvvvvvvvvvvvVvvvvvvvvvvvvVv I I: : : :__ : : : : : : : : : L L ?.???????.??????.??????? i_ i_ ........................._[=L_.... 'i._ :::|:(_)
 :::::--==---'''(   ):.-.^:::o:::::::^ ./\:::/ \^(   _ ( ):v:::::7 vVvvVVVVvvvvvVvVvvvvvvvvVVVvv I I : : :JT-T : : : : : : : : : L L ???..?????...????...??.?? i_ i_ .....................JJ-O-O'........ 'i._ ::|:
 ::_//''::::v::(     ^  / \::.-.^::/ \:.:.-./ \/ \ ^(_(   )::n::7 vvvVVVvvvvVVVVvvvVVVVvvvVvvvvv I I: :_: : : : __: : ___ : : : : L L ?????.???..?????..?????..? i_ i_ ...................................... 'i._
@@ -1065,7 +1065,29 @@ ___________________________________________|0oOO0oO0o|____________
  ||        |  ||  |
  ||       _\.:||:./_
  \/      /____/\____\
-"""}  
+"""}
+
+def print_ascii(art):
+    """Affiche un ASCII art en l'adaptant à la largeur du terminal."""
+    try:
+        term_width = os.get_terminal_size().columns
+    except OSError:
+        term_width = 80  # valeur par défaut si pas de terminal détecté
+
+    lines = art.split('\n')
+    art_width = max((len(line) for line in lines), default=0)
+
+    if art_width > term_width:
+        # Terminal trop étroit : on prévient et on tronque chaque ligne
+        print(f"[ Agrandissez votre terminal pour un meilleur affichage ({art_width} colonnes recommandées) ]")
+        for line in lines:
+            print(line[:term_width])
+    else:
+        # Terminal assez large : on centre l'ASCII art
+        pad = (term_width - art_width) // 2
+        for line in lines:
+            print(' ' * pad + line)
+
 DB = "fantasy.db"
 
 # ---------------------------
@@ -1083,10 +1105,6 @@ def init_db():
     cur = conn.cursor()
 
     # On exécute le schema + inserts si nécessaire
-    with open(__file__, 'r', encoding='utf-8') as f:
-        pass
-
-    # on crée les differentes tables.
     cur.execute("""CREATE TABLE IF NOT EXISTS Classe (
         id_classe INTEGER PRIMARY KEY,
         nom TEXT NOT NULL,
@@ -1342,17 +1360,17 @@ def combat_turn_by_turn(cur, conn, player, enemy, comp_data):
                     total_dmg = 0
                     for i in range(3):
                         dmg = int(math.ceil(player_atk * 0.35))
-                    # critique sur le 2e coup
-                    if i == 1 and random.random() < 0.3:
-                        dmg *= 2
-                        print("> Coup critique !")
-                    # stun sur le 3e
-                    if i == 2 and random.random() < 0.2:
-                        durations['enemy_stun'] = 1
-                        print("> L'ennemi est étourdi !")
+                        # critique sur le 2e coup
+                        if i == 1 and random.random() < 0.3:
+                            dmg *= 2
+                            print("> Coup critique !")
+                        # stun sur le 3e
+                        if i == 2 and random.random() < 0.2:
+                            durations['enemy_stun'] = 1
+                            print("> L'ennemi est étourdi !")
                         total_dmg += dmg
                         print(f"> Coup {i+1} : {dmg} dégâts")
-                    nemy_pv -= total_dmg
+                    enemy_pv -= total_dmg
                 elif comp_name == 'Drain Vital':
                     dmg = int(math.ceil(player_atk))
                     heal = int(dmg * 0.5)
@@ -1360,7 +1378,7 @@ def combat_turn_by_turn(cur, conn, player, enemy, comp_data):
                     player_pv += heal
                     print(f"> Vous drainez {dmg} PV à l'ennemi.")
                     print(f"> Vous récupérez {heal} PV.")
-                elif comp_name=='Chaos du Bouffon':
+                elif comp_name=='Chaos du bouffon':
                     roll = random.random()
                     if roll < 0.4:
                         dmg = int(math.ceil(player_atk * 2))
@@ -1447,56 +1465,56 @@ def combat_turn_by_turn(cur, conn, player, enemy, comp_data):
 # ---------------------------
 def get_story_events():
     STORY_EVENTS = [
-    ("Village", "Vous franchissez la porte du village désert. (Voulez-vous y entrer ?)"),
-    ("Bibliotheque", "Un vieux vous tend une carte usée. (Voulez-vous la prendre ?)"),
-    ("Rue", "Vous entendez un hurlement au loin. (Voulez-vous aller voir ?)"),
-    ("Foret", "Un sentier s'enfonce dans une forêt épaisse. (Voulez-vous y entrer ?)"),
-    ("Pont", "Vous découvrez un pont en ruines. (Voulez-vous le traverser ?)"),
-    ("Riviere", "Une rivière bouillonnante bloque votre route. (Voulez-vous la franchir ?)"),
-    ("Cimetiere", "Un panneau indique 'Cimetière ancien'. (Allez-vous passer ?)"),
-    ("Potion", "Un marchand ambulant vous propose une potion (payante). (Voulez-vous la boire ?)"),
-    ("Pas", "Vous apercevez des traces de pas récentes. (Voulez-vous les suivre ?)"),
-    ("Dragon", "Une grotte fume légèrement. (Voulez-vous entrer ?)"),
-    ("Autel", "Vous trouvez un petit autel couvert de runes. (Voulez-vous interagir avec ?)"),
-    ("Enfant", "Un enfant perdu vous demande de l'aide. (Voulez-vous l'aider ?)"),
-    ("Arbre", "Une lumière bleue jaillit d'un arbuste. (Voulez-vous aller voir ?)"),
-    ("Coffre", "Vous trouvez un coffre ancien. (Voulez-vous l'ouvrir ?)"),
-    ("Assassin", "Une silhouette encapuchonnée vous observe. (Voulez-vous la saluer ?)"),
-    ("Sentier", "Un sentier mène à une clairière où chantent des oiseaux. (Voulez-vous y marcher ?)"),
-    ("Ferme", "Un fermier vous parle d'un dragon aperçu plus haut. (Voulez-vous l'écouter ?)"),
-    ("Quake", "Vous sentez le sol trembler légèrement. (Continuer)"),
-    ("Pierre", "Un rocher semble dissimuler une cavité. (Voulez-vous bouger le rocher ?)"),
-    ("Golem", "Un ermite vous met en garde contre des golems. (Voulez-vous l'écouter ?)"),
-    ("Chemin", "Un passage étroit entre les arbres semble intéressant. (Voulez-vous vous y enfoncer ?)"),
-    ("Tour", "Une vieille tour se dresse à l'horizon. (Voulez-vous aller la voir ?)"),
-    ("Pont", "Un pont-levis se met en mouvement soudainement. (Continuer)"),
-    ("Cascade", "Un ruisseau aux reflets étranges coule ici. (Voulez-vous vous approcher ?)"),
-    ("Croix", "Vous trouvez une croix de pierre gravée. (Voulez-vous la ramasser ?)"),
-    ("Nuage", "Une odeur de soufre vous prend à la gorge. (Continuer d'avancer ?)"),
-    ("Raven", "Un troupeau de corbeaux s'envole au-dessus de vous. (Continuer)"),
-    ("Ossements", "Vous débouchez sur une clairière remplie d'ossements. (Continuer)"),
-    ("Armure", "Un bruit métallique — une armure traînée ? (Rester sur vos gardes ?)"),
-    ("Sentier", "Un chemin caché monte vers la montagne. (Continuer)"),
-    ("Carte", "Vous trouvez des inscriptions qui parlent d'un trésor. (Prendre le temps de lire ?)"),
-    ("Nuit", "La nuit commence à tomber rapidement. (Trouvez un abri ?)"),
-    ("Porte", "Une voix murmure votre nom depuis l'obscurité. (Suivre le bruit ?)"),
-    ("Donjon", "Un vieux pont branlant semble mener à un donjon. (S'y enfoncer ?)"),
-    ("Pas", "Vous remarquez des empreintes brûlées sur la terre. (Continuer)"),
-    ("Autel", "Un autel brisé fume encore d'une magie noire. (Sortir votre arme ?)"),
-    ("Peur", "Vous sentez une présence malveillante tout près. (Vous mettre sur vos gardes ?)"),
-    ("Grotte", "Une grotte mystérieuse apparaît sur le flanc de la montagne. (Entrer ?)"),
-    ("livre", "Un ancien livre est posé sur un piédestal. (Le lire ?)"),
-    ("Quake", "Une faille s'ouvre dans le sol sous vos pieds. (Sauter ou reculer ?)"),
-    ("Fantome", "Vous entendez des voix fantomatiques. (Chercher la source ?)"),
-    ("Coffre", "Un trésor caché brille derrière un rideau de pierres. (Le prendre ?)"),
-    ("Pont", "Un pont suspendu semble fragile. (Le traverser ?)"),
-    ("Feu", "Vous découvrez un camp abandonné avec des vivres. (Inspecter ?)"),
-    ("Rune", "Une rune rouge s'active sous vos pas. (Reculez ou continuez ?)"),
-    ("Tour", "Un cri strident retentit au sommet de la tour. (Monter ?)"),
-    ("Secret", "Vous trouvez un passage secret derrière une bibliothèque. (Entrer ?)"),
-    ("Portail", "Un portail ancien brille d'une lumière surnaturelle. (Le franchir ?)"),
-    ("Golem", "Une armée de golems bloque votre route. (Combattre ou fuir ?)"),
-    ("Artefact", "Au sommet de la montagne, vous découvrez la relique ancestrale. (La prendre et terminer votre quête ?)")
+        ("Village", "Vous franchissez la porte du village désert. (Voulez-vous y entrer ?)"),
+        ("Bibliotheque", "Un vieux vous tend une carte usée. (Voulez-vous la prendre ?)"),
+        ("Rue", "Vous entendez un hurlement au loin. (Voulez-vous aller voir ?)"),
+        ("Foret", "Un sentier s'enfonce dans une forêt épaisse. (Voulez-vous y entrer ?)"),
+        ("Pont", "Vous découvrez un pont en ruines. (Voulez-vous le traverser ?)"),
+        ("Riviere", "Une rivière bouillonnante bloque votre route. (Voulez-vous la franchir ?)"),
+        ("Cimetiere", "Un panneau indique 'Cimetière ancien'. (Allez-vous passer ?)"),
+        ("Potion", "Un marchand ambulant vous propose une potion (payante). (Voulez-vous la boire ?)"),
+        ("Pas", "Vous apercevez des traces de pas récentes. (Voulez-vous les suivre ?)"),
+        ("Dragon", "Une grotte fume légèrement. (Voulez-vous entrer ?)"),
+        ("Autel", "Vous trouvez un petit autel couvert de runes. (Voulez-vous interagir avec ?)"),
+        ("Enfant", "Un enfant perdu vous demande de l'aide. (Voulez-vous l'aider ?)"),
+        ("Arbre", "Une lumière bleue jaillit d'un arbuste. (Voulez-vous aller voir ?)"),
+        ("Coffre", "Vous trouvez un coffre ancien. (Voulez-vous l'ouvrir ?)"),
+        ("Assassin", "Une silhouette encapuchonnée vous observe. (Voulez-vous la saluer ?)"),
+        ("Sentier", "Un sentier mène à une clairière où chantent des oiseaux. (Voulez-vous y marcher ?)"),
+        ("Ferme", "Un fermier vous parle d'un dragon aperçu plus haut. (Voulez-vous l'écouter ?)"),
+        ("Quake", "Vous sentez le sol trembler légèrement. (Continuer)"),
+        ("Pierre", "Un rocher semble dissimuler une cavité. (Voulez-vous bouger le rocher ?)"),
+        ("Golem", "Un ermite vous met en garde contre des golems. (Voulez-vous l'écouter ?)"),
+        ("Chemin", "Un passage étroit entre les arbres semble intéressant. (Voulez-vous vous y enfoncer ?)"),
+        ("Tour", "Une vieille tour se dresse à l'horizon. (Voulez-vous aller la voir ?)"),
+        ("Pont", "Un pont-levis se met en mouvement soudainement. (Continuer)"),
+        ("Cascade", "Un ruisseau aux reflets étranges coule ici. (Voulez-vous vous approcher ?)"),
+        ("Croix", "Vous trouvez une croix de pierre gravée. (Voulez-vous la ramasser ?)"),
+        ("Nuage", "Une odeur de soufre vous prend à la gorge. (Continuer d'avancer ?)"),
+        ("Raven", "Un troupeau de corbeaux s'envole au-dessus de vous. (Continuer)"),
+        ("Ossements", "Vous débouchez sur une clairière remplie d'ossements. (Continuer)"),
+        ("Armure", "Un bruit métallique — une armure traînée ? (Rester sur vos gardes ?)"),
+        ("Sentier", "Un chemin caché monte vers la montagne. (Continuer)"),
+        ("Carte", "Vous trouvez des inscriptions qui parlent d'un trésor. (Prendre le temps de lire ?)"),
+        ("Nuit", "La nuit commence à tomber rapidement. (Trouvez un abri ?)"),
+        ("Porte", "Une voix murmure votre nom depuis l'obscurité. (Suivre le bruit ?)"),
+        ("Donjon", "Un vieux pont branlant semble mener à un donjon. (S'y enfoncer ?)"),
+        ("Pas", "Vous remarquez des empreintes brûlées sur la terre. (Continuer)"),
+        ("Autel", "Un autel brisé fume encore d'une magie noire. (Sortir votre arme ?)"),
+        ("Peur", "Vous sentez une présence malveillante tout près. (Vous mettre sur vos gardes ?)"),
+        ("Grotte", "Une grotte mystérieuse apparaît sur le flanc de la montagne. (Entrer ?)"),
+        ("livre", "Un ancien livre est posé sur un piédestal. (Le lire ?)"),
+        ("Quake", "Une faille s'ouvre dans le sol sous vos pieds. (Sauter ou reculer ?)"),
+        ("Fantome", "Vous entendez des voix fantomatiques. (Chercher la source ?)"),
+        ("Coffre", "Un trésor caché brille derrière un rideau de pierres. (Le prendre ?)"),
+        ("Pont", "Un pont suspendu semble fragile. (Le traverser ?)"),
+        ("Feu", "Vous découvrez un camp abandonné avec des vivres. (Inspecter ?)"),
+        ("Rune", "Une rune rouge s'active sous vos pas. (Reculez ou continuez ?)"),
+        ("Tour", "Un cri strident retentit au sommet de la tour. (Monter ?)"),
+        ("Secret", "Vous trouvez un passage secret derrière une bibliothèque. (Entrer ?)"),
+        ("Portail", "Un portail ancien brille d'une lumière surnaturelle. (Le franchir ?)"),
+        ("Golem", "Une armée de golems bloque votre route. (Combattre ou fuir ?)"),
+        ("Artefact", "Au sommet de la montagne, vous découvrez la relique ancestrale. (La prendre et terminer votre quête ?)")
     ]
     return ("Village",STORY_EVENTS)
 
@@ -1514,10 +1532,6 @@ def play_adventure(cur, conn):
         return
     # On récupère décor initial et events
     decor_initial, events = story
-
-    # Affichage du décor initial si présent dans DECORS
-    if decor_initial in DECORS:
-        print(DECORS[decor_initial])
 
     total_steps = len(events)
     step = 0
@@ -1555,7 +1569,7 @@ def play_adventure(cur, conn):
     
         # Affichage du décor si présent
         if decor_step in DECORS:
-            print(DECORS[decor_step])
+            print_ascii(DECORS[decor_step])
     
         # Affichage du texte
         print(event_text)
@@ -1640,7 +1654,7 @@ def main():
     for c in classes:
         print(f"{c[0]} - {c[1]}")
         if c[1] in CLASS_LOGOS:
-            print(CLASS_LOGOS[c[1]])
+            print_ascii(CLASS_LOGOS[c[1]])
         print(f"   PV : {c[2]} | ATQ : {c[3]}")
         print(f"   Capacité : {c[4]}")
         print(f"   Effet : {c[5]}\n")
@@ -1659,7 +1673,7 @@ def main():
     print(f"\nBienvenue {player_row[1]} le {player_row[8]} ! (PV: {player_row[5]}, ATQ: {player_row[6]})")
     classe_nom = player_row[8]
     if classe_nom in CLASS_LOGOS:
-        print(CLASS_LOGOS[classe_nom])
+        print_ascii(CLASS_LOGOS[classe_nom])
     input("\nAppuyez sur Entrée pour commencer l'aventure : Le Village Oublié")
 
     play_adventure(cur, conn)
